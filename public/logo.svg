@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" fill="none">
+  <defs>
+    <linearGradient id="logoStGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="50%" stop-color="#14b8a6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+
+    <linearGradient id="logoKeycapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+
+    <linearGradient id="logoDishGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Keycap Icon (0..64) -->
+  <g transform="translate(0, 0)">
+    <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#logoKeycapGrad)" stroke="#334155" stroke-width="1.5" />
+    <rect x="10" y="9" width="44" height="42" rx="10" fill="url(#logoDishGrad)" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    
+    <!-- Stylized S ribbon -->
+    <path
+      d="M 40 22 L 28 22 C 23 22 20 24.5 20 28 C 20 31.5 23 33 27 34 L 36 36 C 41 37 43 39.5 43 43 C 43 47 39 49.5 33 49.5 L 21 49.5"
+      fill="none"
+      stroke="url(#logoStGrad)"
+      stroke-width="4.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <rect x="42" y="17.5" width="3" height="8" rx="1.5" fill="#10b981" />
+    <circle cx="17" cy="49.5" r="2" fill="#06b6d4" />
+  </g>
+
+  <!-- Typography: solo (Emerald) + type (Light/Neutral) -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="28" font-weight="800" letter-spacing="-0.5px">
+    <text x="74" y="41" fill="#10b981">solo</text>
+    <text x="144" y="41" fill="#f8fafc">type</text>
+  </g>
+
+  <!-- Terminal Caret Cursor Block -->
+  <rect x="214" y="21" width="4" height="24" rx="1.5" fill="#10b981">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />
+  </rect>
+</svg>

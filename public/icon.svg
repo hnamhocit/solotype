@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <!-- Brand Primary Gradient -->
+    <linearGradient id="stGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="50%" stop-color="#14b8a6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+
+    <!-- Keycap Bevel Gradient -->
+    <linearGradient id="keycapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+
+    <!-- Subtle Dish Gradient -->
+    <linearGradient id="dishGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Keycap Outer Base with 3D Bevel -->
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#keycapGrad)" stroke="#334155" stroke-width="1.5" />
+  
+  <!-- Keycap Top Dish Inset -->
+  <rect x="8" y="7" width="48" height="46" rx="10" fill="url(#dishGrad)" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+
+  <!-- High-Speed "S" Ribbon & Typing Stroke -->
+  <path
+    d="M 41 21 L 28 21 C 22.5 21 19 23.8 19 27.5 C 19 31 22 33 27 34 L 37 36 C 42.5 37.2 45 39.5 45 43.5 C 45 47.8 41 50.5 34 50.5 L 21 50.5"
+    fill="none"
+    stroke="url(#stGrad)"
+    stroke-width="5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#neonGlow)"
+  />
+
+  <!-- Active Terminal Caret Accent on top-right -->
+  <rect x="43" y="16.5" width="3.5" height="9" rx="1.5" fill="#10b981">
+    <animate attributeName="opacity" values="1;0.2;1" dur="1.2s" repeatCount="indefinite" />
+  </rect>
+
+  <!-- Left Bottom Prompt Dot Accent -->
+  <circle cx="16" cy="50.5" r="2.2" fill="#06b6d4" opacity="0.9" />
+</svg>

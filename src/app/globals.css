@@ -1,26 +1,246 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono:
+    var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, SFMono-Regular,
+    Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: light dark;
+
+  /* Default Theme: Paper Light (Clean Minimalist White) */
+  --bg-main: #f8fafc;
+  --bg-sub: #ffffff;
+  --bg-card: #f1f5f9;
+  --border-color: #e2e8f0;
+  --border-active: #94a3b8;
+  --text-main: #0f172a; /* High-contrast deep slate for typed text */
+  --text-untyped: #94a3b8; /* Clean, readable slate for upcoming text */
+  --text-dim: #64748b; /* Secondary hints and shortcuts */
+  --text-passed: #cbd5e1; /* Dimmed past words */
+  --color-primary: #10b981; /* Emerald green */
+  --color-error: #ef4444; /* Clear vibrant red */
+  --color-warning: #f59e0b; /* Warm amber */
+  --color-info: #0284c7; /* Ocean blue */
+  --color-accent: #8b5cf6; /* Violet */
+}
+
+/* 1. Paper Light */
+[data-theme="paper-light"] {
+  color-scheme: light;
+  --bg-main: #f8fafc;
+  --bg-sub: #ffffff;
+  --bg-card: #f1f5f9;
+  --border-color: #e2e8f0;
+  --border-active: #94a3b8;
+  --text-main: #0f172a;
+  --text-untyped: #94a3b8;
+  --text-dim: #64748b;
+  --text-passed: #cbd5e1;
+  --color-primary: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: #0284c7;
+  --color-accent: #8b5cf6;
+}
+
+/* 2. Everforest Light (Warm Japanese parchment) */
+[data-theme="everforest-light"] {
+  color-scheme: light;
+  --bg-main: #fdf6e3;
+  --bg-sub: #f4f0d9;
+  --bg-card: #eadeb8;
+  --border-color: #dfd5b6;
+  --border-active: #a6b0a0;
+  --text-main: #5c6a72;
+  --text-untyped: #939f91;
+  --text-dim: #829181;
+  --text-passed: #c5c8ba;
+  --color-primary: #8da101;
+  --color-error: #f85552;
+  --color-warning: #dfa000;
+  --color-info: #3a94c5;
+  --color-accent: #df69ba;
+}
+
+/* 3. Catppuccin Latte */
+[data-theme="catppuccin-latte"] {
+  color-scheme: light;
+  --bg-main: #eff1f5;
+  --bg-sub: #e6e9ef;
+  --bg-card: #dce0e8;
+  --border-color: #ccd0da;
+  --border-active: #9ca0b0;
+  --text-main: #4c4f69;
+  --text-untyped: #8c8fa1;
+  --text-dim: #7c7f93;
+  --text-passed: #acb0be;
+  --color-primary: #40a02b;
+  --color-error: #d20f39;
+  --color-warning: #df8e1d;
+  --color-info: #1e66f5;
+  --color-accent: #8839ef;
+}
+
+/* 4. Everforest Dark */
+[data-theme="everforest-dark"] {
+  color-scheme: dark;
+  --bg-main: #1e2326;
+  --bg-sub: #272e33;
+  --bg-card: #2d353b;
+  --border-color: #374145;
+  --border-active: #53605c;
+  --text-main: #d3c6aa;
+  --text-untyped: #9da9a0;
+  --text-dim: #7a8478;
+  --text-passed: #5b675e;
+  --color-primary: #a7c080;
+  --color-error: #e67e80;
+  --color-warning: #dbbc7f;
+  --color-info: #7fbbb3;
+  --color-accent: #d699b6;
+}
+
+/* 5. Catppuccin Mocha */
+[data-theme="catppuccin-mocha"] {
+  color-scheme: dark;
+  --bg-main: #181825;
+  --bg-sub: #1e1e2e;
+  --bg-card: #313244;
+  --border-color: #45475a;
+  --border-active: #585b70;
+  --text-main: #cdd6f4;
+  --text-untyped: #bac2de;
+  --text-dim: #9399b2;
+  --text-passed: #6c7086;
+  --color-primary: #a6e3a1;
+  --color-error: #f38ba8;
+  --color-warning: #f9e2af;
+  --color-info: #89b4fa;
+  --color-accent: #cba6f7;
+}
+
+/* 6. Gruvbox Dark */
+[data-theme="gruvbox-dark"] {
+  color-scheme: dark;
+  --bg-main: #1d2021;
+  --bg-sub: #282828;
+  --bg-card: #3c3836;
+  --border-color: #504945;
+  --border-active: #665c54;
+  --text-main: #ebdbb2;
+  --text-untyped: #d5c4a1;
+  --text-dim: #a89984;
+  --text-passed: #7c6f64;
+  --color-primary: #b8bb26;
+  --color-error: #fb4934;
+  --color-warning: #fabd2f;
+  --color-info: #83a598;
+  --color-accent: #d3869b;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family:
+    var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, SFMono-Regular,
+    Menlo, Monaco, Consolas, monospace;
+  overflow-x: hidden;
+  letter-spacing: 0.005em;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
+}
+
+/* Caret animations */
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.animate-caret {
+  animation: caret-blink 0.9s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth sliding cursor transition */
+.smooth-caret-cursor {
+  transition:
+    left 0.085s cubic-bezier(0.2, 0.9, 0.3, 1.2),
+    top 0.1s ease,
+    height 0.1s ease;
+  will-change: left, top;
+}
+
+/* Keystroke Pop Animation */
+@keyframes char-pop {
+  0% {
+    transform: scale(1.15) translateY(-1px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-char-pop {
+  display: inline-block;
+  animation: char-pop 0.12s cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Mistake word shake */
+@keyframes word-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-3px);
+  }
+  40%,
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+.animate-shake {
+  animation: word-shake 0.22s ease-in-out;
+}
+
+/* Subtle pulse for memorization phase */
+@keyframes flash-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.96;
+    transform: scale(1.004);
+  }
+}
+
+.animate-flash-pulse {
+  animation: flash-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
