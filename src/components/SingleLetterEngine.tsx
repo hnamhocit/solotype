@@ -102,15 +102,20 @@ export const SingleLetterEngine: React.FC<SingleLetterEngineProps> = ({
     ) {
       const container = streamContainerRef.current;
       const element = activeLetterRef.current;
-      const offsetTop = element.offsetTop - container.offsetTop;
+      const letterTop = element.offsetTop;
+      const letterHeight = element.offsetHeight || 56;
+      const containerHeight = container.clientHeight || 220;
 
-      if (offsetTop > 70) {
+      const targetScrollTop = Math.max(
+        0,
+        Math.round(letterTop - (containerHeight / 2 - letterHeight / 2)),
+      );
+
+      if (Math.abs(container.scrollTop - targetScrollTop) > 6) {
         container.scrollTo({
-          top: offsetTop - 35,
+          top: targetScrollTop,
           behavior: "smooth",
         });
-      } else {
-        container.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
   }, [currentIdx]);

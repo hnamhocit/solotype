@@ -109,7 +109,7 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
     }
   }, [dictionary.length, restartTest]);
 
-  // Keep active word in comfortable scroll view
+  // Keep active word in comfortable scroll view (smooth 3-line centering)
   useEffect(() => {
     if (
       currentWordIndex >= 0 &&
@@ -118,16 +118,24 @@ export const TypingEngine: React.FC<TypingEngineProps> = ({
     ) {
       const container = wordsContainerRef.current;
       const element = activeWordRef.current;
-      const offsetTop = element.offsetTop - container.offsetTop;
 
-      // Smoothly keep the current line centered
-      if (offsetTop > 75) {
+      const wordTop = element.offsetTop;
+      const wordHeight = element.offsetHeight || 36;
+      const containerHeight = container.clientHeight || 135;
+
+      // Keep active line centered vertically in the 3-line view
+      // Middle target: active word sits in the middle row (containerHeight / 2 - wordHeight / 2)
+      const targetScrollTop = Math.max(
+        0,
+        Math.round(wordTop - (containerHeight / 2 - wordHeight / 2)),
+      );
+
+      // Only scroll when crossing to a new line / offset
+      if (Math.abs(container.scrollTop - targetScrollTop) > 6) {
         container.scrollTo({
-          top: offsetTop - 40,
+          top: targetScrollTop,
           behavior: "smooth",
         });
-      } else {
-        container.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
   }, [currentWordIndex]);

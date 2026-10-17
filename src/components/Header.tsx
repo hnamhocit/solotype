@@ -17,7 +17,6 @@ import { useState } from "react";
 import type { AppTheme, FontSize, SoundProfile } from "@/lib/types";
 import { useTypingStore } from "@/store/useTypingStore";
 import { CustomConfigModal, type CustomConfigType } from "./CustomConfigModal";
-import { GithubIcon } from "./GithubIcon";
 import { SoloTypeLogo } from "./Logo";
 
 interface HeaderProps {
@@ -190,23 +189,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDeck, onRestart }) => {
           >
             v1.1 • spaced & light
           </span>
-
-          {/* GitHub: hnamhocit */}
-          <a
-            href="https://github.com/hnamhocit"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="GitHub: @hnamhocit"
-            className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full border transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:scale-105 active:scale-95 shadow-2xs"
-            style={{
-              borderColor: "var(--border-color)",
-              color: "var(--text-dim)",
-              backgroundColor: "var(--bg-sub)",
-            }}
-          >
-            <GithubIcon className="w-3.5 h-3.5" />
-            <span className="font-semibold tracking-tight">hnamhocit</span>
-          </a>
         </div>
 
         {/* Global Action Controls */}
